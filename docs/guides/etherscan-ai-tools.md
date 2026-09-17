@@ -20,12 +20,12 @@ If you already know the page you want, append `.md` to its URL for a Markdown vi
 
 ## What Etherscan ships
 
-| Tool | What it is | Best fit inside Ever Works |
-| ---- | ---------- | -------------------------- |
-| **Etherscan MCP** | Tool-based, authenticated API access for chat agents | Register it as an external server with [MCP Connections](../features/mcp-connections.md) |
-| **Etherscan CLI** | Terminal access with structured output | Use it beside the [CLI Quickstart](./cli-quickstart.md) for scripts and CI |
-| **Etherscan Skills** | Installable agent instructions for working with onchain data | Add them through the [Skills Catalog](../features/skills-catalog.md) |
-| **Etherscan Flow** | A specialized Skill for tracing and visualizing money flows | Attach it to an Agent that does investigations or case-building |
+| Tool                 | What it is                                                   | Best fit inside Ever Works                                                               |
+| -------------------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| **Etherscan MCP**    | Tool-based, authenticated API access for chat agents         | Register it as an external server with [MCP Connections](../features/mcp-connections.md) |
+| **Etherscan CLI**    | Terminal access with structured output                       | Use it beside the [CLI Quickstart](./cli-quickstart.md) for scripts and CI               |
+| **Etherscan Skills** | Installable agent instructions for working with onchain data | Add them through the [Skills Catalog](../features/skills-catalog.md)                     |
+| **Etherscan Flow**   | A specialized Skill for tracing and visualizing money flows  | Attach it to an Agent that does investigations or case-building                          |
 
 Etherscan documents these AI tools under its **Build with AI** section:
 
@@ -78,12 +78,12 @@ Read first:
 
 Etherscan's docs are unusually agent-friendly:
 
-| Surface | Use it for |
-| ------- | ---------- |
-| `llms.txt` | Discover the documentation map before browsing deeper |
-| `llms-full.txt` | Give an agent one large export when recall matters more than targeted retrieval |
-| Page `.md` twins | Pull a single doc page as Markdown |
-| Docs MCP | Let an agent search the docs as it works instead of preloading them |
+| Surface          | Use it for                                                                      |
+| ---------------- | ------------------------------------------------------------------------------- |
+| `llms.txt`       | Discover the documentation map before browsing deeper                           |
+| `llms-full.txt`  | Give an agent one large export when recall matters more than targeted retrieval |
+| Page `.md` twins | Pull a single doc page as Markdown                                              |
+| Docs MCP         | Let an agent search the docs as it works instead of preloading them             |
 
 That fits naturally with Ever Works:
 
