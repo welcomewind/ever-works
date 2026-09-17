@@ -292,6 +292,11 @@ const sidebars: SidebarsConfig = {
 				'guides/mcp-server-setup',
 				'guides/cli-quickstart',
 				'guides/desktop-app',
+				// Error handling guide: comprehensive guide to understanding,
+				// handling, and debugging errors in Ever Works applications.
+				// Covers both API errors and client-side error handling.
+				'guides/error-handling-guide',
+				'guides/error-troubleshooting',
 				// Operator-facing guide: the five Compose files, the boot-time
 				// env checks, the GHCR images and the .deploy/k8s manifests.
 				// Last in Guides because it is about running the platform
@@ -309,12 +314,14 @@ const sidebars: SidebarsConfig = {
 			label: 'Knowledge Base',
 			items: ['kb/user-guide', 'kb/mcp-cli-reference']
 		},
-		{
 			type: 'category',
 			label: 'API Reference',
 			items: [
 				'api/index',
 				'api/authentication',
+				// Quick reference for API errors - common status codes,
+				// error scenarios, and retry strategies.
+				'guides/api-error-reference',
 				'api/works',
 				// Agents/Skills/Tasks PR #1017 — Phase 20.2 reference
 				// pages for the 3 new feature families.
