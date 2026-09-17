@@ -289,6 +289,7 @@ const sidebars: SidebarsConfig = {
 				// surfaces the platform speaks through: MCP clients, the
 				// CLI and the desktop app.
 				'guides/bring-your-own-ai-provider',
+				'guides/etherscan-ai-tools',
 				'guides/mcp-server-setup',
 				'guides/cli-quickstart',
 				'guides/desktop-app',
