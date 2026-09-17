@@ -44,7 +44,7 @@ export class KbLockTool {
 			return {
 				content: [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
 			};
-		} catch (err) {
+		} catch (err: unknown) {
 			return toMcpError(err);
 		}
 	}
