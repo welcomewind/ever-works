@@ -15,20 +15,19 @@ export type {
 	Collection,
 	Tag,
 	Brand,
-	DomainAnalysis,
-	WebPageData,
-	RelevanceAssessment,
 	Badge,
 	ItemBadges,
 	BadgeEvaluationResult,
 	Identifiable
-} from '@ever-works/contracts';
+} from '@ever-works/contracts/item';
+
+export type { DomainAnalysis, WebPageData, RelevanceAssessment } from '@ever-works/contracts/domain';
 
 // Enums commonly used in plugins
-export { DomainType } from '@ever-works/contracts';
+export { DomainType } from '@ever-works/contracts/domain';
 
 // Form types commonly used in form-schema providers
-export type { FormFieldDefinition, FormFieldGroup, FormSchema, FormFieldType } from '@ever-works/contracts';
+export type { FormFieldDefinition, FormFieldGroup, FormSchema, FormFieldType } from '@ever-works/contracts/form';
 
 // Shared provider constants
 export {
