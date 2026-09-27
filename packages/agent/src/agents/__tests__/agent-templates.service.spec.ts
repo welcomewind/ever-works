@@ -90,6 +90,42 @@ describe('AgentTemplatesService', () => {
         });
     });
 
+    it('writes any seeded role, heartbeat, and tool files after SOUL.md', async () => {
+        const { service, files } = makeService();
+        const template = getAgentTemplate('ceo-operator')!;
+
+        await service.createFromTemplate('user-1', 'ceo-operator');
+
+        expect(files.write.mock.calls).toEqual(
+            expect.arrayContaining([
+                [
+                    {
+                        userId: 'user-1',
+                        agentId: 'agent-1',
+                        name: 'AGENTS.md',
+                        body: template.seedFiles?.['AGENTS.md'],
+                    },
+                ],
+                [
+                    {
+                        userId: 'user-1',
+                        agentId: 'agent-1',
+                        name: 'HEARTBEAT.md',
+                        body: template.seedFiles?.['HEARTBEAT.md'],
+                    },
+                ],
+                [
+                    {
+                        userId: 'user-1',
+                        agentId: 'agent-1',
+                        name: 'TOOLS.md',
+                        body: template.seedFiles?.['TOOLS.md'],
+                    },
+                ],
+            ]),
+        );
+    });
+
     it('seeds the review-before-act guardrails and returns the refreshed DTO', async () => {
         const { service, agents } = makeService();
         const template = getAgentTemplate('competitive-analyst')!;

@@ -74,9 +74,10 @@ describe('roster blueprint catalogue integrity', () => {
         expect(catalog.length).toBeLessThanOrEqual(12);
         const templates = catalog.map((spec) => spec.templateSlug);
         expect(new Set(templates).size).toBe(templates.length);
-        // Only the coordination lane is a coordinator, catalogue-wide.
+        // Only the shipped coordinator lanes are coordinators, catalogue-wide.
         expect(catalog.filter((spec) => spec.isCoordinator).map((spec) => spec.laneKey)).toEqual([
             'coordination',
+            'executive',
         ]);
     });
 
@@ -91,7 +92,7 @@ describe('roster blueprint catalogue integrity', () => {
     });
 
     it('resolves a lane by key and returns undefined for one it does not ship', () => {
-        expect(getLaneSpec('research')?.templateSlug).toBe('lead-researcher');
+        expect(getLaneSpec('research')?.templateSlug).toBe('research-lead');
         expect(getLaneSpec('not-a-lane')).toBeUndefined();
         expect(Object.keys(LANE_CATALOG)).toContain('coordination');
     });
@@ -105,6 +106,7 @@ describe('selectBlueprint', () => {
     });
 
     it('picks the blueprint the answered roles vote for', () => {
+        expect(selectBlueprint(['founder-ceo']).slug).toBe('business-operating');
         expect(selectBlueprint(['marketing']).slug).toBe('growth');
         expect(selectBlueprint(['sales']).slug).toBe('revenue');
         expect(selectBlueprint(['research']).slug).toBe('insight');

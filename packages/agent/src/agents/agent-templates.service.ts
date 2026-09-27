@@ -38,6 +38,12 @@ export interface CreateAgentFromTemplateInput {
 @Injectable()
 export class AgentTemplatesService {
     private readonly logger = new Logger(AgentTemplatesService.name);
+    private static readonly FILE_WRITE_ORDER = [
+        'SOUL.md',
+        'AGENTS.md',
+        'HEARTBEAT.md',
+        'TOOLS.md',
+    ] as const;
 
     constructor(
         private readonly agents: AgentsService,
@@ -91,19 +97,24 @@ export class AgentTemplatesService {
             ? await this.agents.create(userId, createInput, ownershipScope)
             : await this.agents.create(userId, createInput);
 
-        // Persist the template's system prompt as the Agent's SOUL.md.
-        // Best-effort ordering: the Agent row exists first, so a failed
-        // file write surfaces loudly instead of leaving no Agent at all.
+        // Persist the template's seed files. Best-effort ordering: the
+        // Agent row exists first, so a failed file write surfaces loudly
+        // instead of leaving no Agent at all.
         if (this.files) {
-            await this.files.write({
-                userId,
-                agentId: created.id,
-                name: 'SOUL.md',
-                body: template.systemPrompt,
-            });
+            for (const name of AgentTemplatesService.FILE_WRITE_ORDER) {
+                const body =
+                    name === 'SOUL.md' ? template.systemPrompt : template.seedFiles?.[name];
+                if (!body) continue;
+                await this.files.write({
+                    userId,
+                    agentId: created.id,
+                    name,
+                    body,
+                });
+            }
         } else {
             this.logger.warn(
-                `AgentFileService unavailable — created "${created.id}" from template "${slug}" without SOUL.md.`,
+                `AgentFileService unavailable — created "${created.id}" from template "${slug}" without seed files.`,
             );
         }
 

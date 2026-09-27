@@ -52,6 +52,11 @@ describe('agent-templates catalog integrity', () => {
             ).not.toThrow();
             expect(template.description.trim().length).toBeGreaterThan(40);
             expect(template.capabilities.trim().length).toBeGreaterThan(20);
+            for (const [name, body] of Object.entries(template.seedFiles ?? {})) {
+                expect(name).toMatch(/^(AGENTS|HEARTBEAT|TOOLS)\.md$/);
+                expect(body.trim().length).toBeGreaterThan(80);
+                expect(() => assertNoSecrets(body, `${template.slug}:${name}`)).not.toThrow();
+            }
         }
     });
 

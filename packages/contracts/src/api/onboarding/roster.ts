@@ -22,12 +22,17 @@
  */
 export const ROSTER_LANE_KEYS = [
 	'coordination',
+	'executive',
 	'research',
 	'content',
 	'outreach',
 	'visibility',
 	'social',
-	'market-watch'
+	'market-watch',
+	'growth',
+	'product-marketing',
+	'build',
+	'review'
 ] as const;
 
 export type RosterLaneKey = (typeof ROSTER_LANE_KEYS)[number];
@@ -37,7 +42,16 @@ export type RosterLaneKey = (typeof ROSTER_LANE_KEYS)[number];
  * a blueprint changes when we deploy, never when a user acts, and it
  * must mean the same thing in a bug report as it does in production.
  */
-export const ROSTER_BLUEPRINT_SLUGS = ['general', 'growth', 'revenue', 'insight', 'solo-starter'] as const;
+export const ROSTER_COORDINATOR_LANE_KEYS = ['coordination', 'executive'] as const;
+
+export const ROSTER_BLUEPRINT_SLUGS = [
+	'general',
+	'growth',
+	'revenue',
+	'insight',
+	'solo-starter',
+	'business-operating'
+] as const;
 
 export type RosterBlueprintSlug = (typeof ROSTER_BLUEPRINT_SLUGS)[number];
 

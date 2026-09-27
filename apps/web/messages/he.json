@@ -605,6 +605,22 @@
                 "seedFailed": "Could not set up your starter agents. Try again."
             },
             "skipHint": "Optional — skip if you'd rather not say. Your answers only improve suggestions and can be changed later."
+        },
+        "rosterStep": {
+            "lanes": {
+                "executive": "Executive",
+                "growth": "Growth",
+                "productMarketing": "Product marketing",
+                "build": "Build",
+                "review": "Review"
+            },
+            "blurbs": {
+                "executive": "Owns priorities, approvals, and the next revenue bottleneck for the team.",
+                "growth": "Runs one active channel, measures response quality, and reports what to scale or stop.",
+                "productMarketing": "Turns research into offers, landing-page copy, proof, and CTAs.",
+                "build": "Ships the approved page, funnel, analytics, and onboarding changes.",
+                "review": "Checks shipped work against the acceptance bar and sends back exact fixes when needed."
+            }
         }
     },
     "dashboard": {

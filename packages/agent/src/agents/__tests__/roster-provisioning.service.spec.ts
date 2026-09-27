@@ -116,7 +116,7 @@ describe('RosterProvisioningService.execute', () => {
         // parallelised loop races that check into false conflicts.
         expect(h.templates.createFromTemplate.mock.calls.map((call) => call[1])).toEqual([
             'workspace-coordinator',
-            'lead-researcher',
+            'research-lead',
             'content-marketer',
         ]);
         expect(record.finishedAt).toBeTruthy();

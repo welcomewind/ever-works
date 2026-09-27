@@ -27,12 +27,17 @@ import type {
  */
 export type RosterLaneLabelKey =
     | 'coordination'
+    | 'executive'
     | 'research'
     | 'content'
     | 'outreach'
     | 'visibility'
     | 'social'
-    | 'marketWatch';
+    | 'marketWatch'
+    | 'growth'
+    | 'productMarketing'
+    | 'build'
+    | 'review';
 
 export interface RosterLaneOption {
     readonly laneKey: RosterLaneKey;

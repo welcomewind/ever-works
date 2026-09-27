@@ -16,6 +16,7 @@ import {
 } from 'class-validator';
 import {
     ROSTER_BLUEPRINT_SLUGS,
+    ROSTER_COORDINATOR_LANE_KEYS,
     ROSTER_LANE_KEYS,
     ROSTER_MAX_LANES,
     ROSTER_NAME_MAX,
@@ -26,6 +27,7 @@ import {
 } from '@ever-works/contracts/api';
 
 const LANE_KEYS: readonly string[] = ROSTER_LANE_KEYS;
+const COORDINATOR_KEYS: readonly string[] = ROSTER_COORDINATOR_LANE_KEYS;
 const BLUEPRINT_SLUGS: readonly string[] = ROSTER_BLUEPRINT_SLUGS;
 
 /**
@@ -57,7 +59,7 @@ export class ProvisionRosterLaneDto {
  * - No duplicate lane key: two agents cannot both own research, and the
  *   partial unique index behind `agents.lane` would refuse the second
  *   anyway, halfway through a run.
- * - A `coordination` lane must be present: a roster whose ambiguous
+ * - A coordinator lane must be present: a roster whose ambiguous
  *   requests have nowhere to go is the shape this epic exists to stop
  *   shipping, and every blueprint opens with one.
  */
@@ -70,7 +72,7 @@ export class RosterLaneSetConstraint implements ValidatorConstraintInterface {
             .filter((key): key is string => typeof key === 'string');
         if (keys.length !== value.length) return false;
         if (new Set(keys).size !== keys.length) return false;
-        return keys.includes('coordination');
+        return keys.some((key) => COORDINATOR_KEYS.includes(key));
     }
 
     defaultMessage(args: ValidationArguments): string {
@@ -80,7 +82,7 @@ export class RosterLaneSetConstraint implements ValidatorConstraintInterface {
         if (new Set(keys).size !== keys.length) {
             return 'lanes must not repeat a lane key.';
         }
-        return 'lanes must include the coordination lane.';
+        return 'lanes must include a coordinator lane.';
     }
 }
 

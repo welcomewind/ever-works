@@ -70,10 +70,17 @@ export const LANE_CATALOG: Readonly<Record<RosterLaneKey, RosterLaneSpec>> = {
         defaultName: 'Ada',
         isCoordinator: true,
     },
+    executive: {
+        laneKey: 'executive',
+        labelKey: 'executive',
+        templateSlug: 'ceo-operator',
+        defaultName: 'CEO',
+        isCoordinator: true,
+    },
     research: {
         laneKey: 'research',
         labelKey: 'research',
-        templateSlug: 'lead-researcher',
+        templateSlug: 'research-lead',
         defaultName: 'Research',
     },
     content: {
@@ -106,6 +113,30 @@ export const LANE_CATALOG: Readonly<Record<RosterLaneKey, RosterLaneSpec>> = {
         templateSlug: 'competitive-analyst',
         defaultName: 'Market watch',
     },
+    growth: {
+        laneKey: 'growth',
+        labelKey: 'growth',
+        templateSlug: 'growth-lead',
+        defaultName: 'Growth',
+    },
+    'product-marketing': {
+        laneKey: 'product-marketing',
+        labelKey: 'productMarketing',
+        templateSlug: 'product-marketer',
+        defaultName: 'Product marketing',
+    },
+    build: {
+        laneKey: 'build',
+        labelKey: 'build',
+        templateSlug: 'builder',
+        defaultName: 'Builder',
+    },
+    review: {
+        laneKey: 'review',
+        labelKey: 'review',
+        templateSlug: 'reviewer',
+        defaultName: 'Reviewer',
+    },
 };
 
 /** Compose a blueprint from lane keys; coordination is always first. */
@@ -130,6 +161,14 @@ export const ROSTER_BLUEPRINTS: Readonly<Record<RosterBlueprintSlug, RosterBluep
     revenue: blueprint('revenue', ['coordination', 'outreach', 'research', 'content']),
     insight: blueprint('insight', ['coordination', 'research', 'market-watch']),
     'solo-starter': blueprint('solo-starter', ['coordination', 'content']),
+    'business-operating': blueprint('business-operating', [
+        'executive',
+        'research',
+        'growth',
+        'product-marketing',
+        'build',
+        'review',
+    ]),
 };
 
 /**
@@ -144,7 +183,7 @@ export const ROSTER_BLUEPRINTS: Readonly<Record<RosterBlueprintSlug, RosterBluep
  * created.
  */
 export const ROLE_BLUEPRINT_VOTES: Readonly<Record<OnboardingRoleId, RosterBlueprintSlug>> = {
-    'founder-ceo': 'general',
+    'founder-ceo': 'business-operating',
     engineering: 'insight',
     product: 'insight',
     marketing: 'growth',

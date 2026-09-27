@@ -270,7 +270,7 @@ export class OnboardingRosterController {
 
         const laneKeys = Object.keys(LANE_CATALOG);
         const rows = await this.agents.findByUserAndLanes(userId, laneKeys, scope ?? undefined);
-        const byId = new Map(rows.map((agent) => [agent.id, agent]));
+        const byId = new Map<string, (typeof rows)[number]>(rows.map((agent) => [agent.id, agent]));
 
         const agents: RosterAgentDto[] = rows.map((agent) => {
             const spec = agent.lane ? getLaneSpec(agent.lane) : undefined;

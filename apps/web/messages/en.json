@@ -632,7 +632,12 @@
                 "outreach": "Outreach",
                 "visibility": "Search visibility",
                 "social": "Social",
-                "marketWatch": "Market watch"
+                "marketWatch": "Market watch",
+                "executive": "Executive",
+                "growth": "Growth",
+                "productMarketing": "Product marketing",
+                "build": "Build",
+                "review": "Review"
             },
             "blurbs": {
                 "coordination": "Takes whatever you hand over, works out who should do it, and asks you when it isn't obvious.",
@@ -641,7 +646,12 @@
                 "outreach": "Writes the first message and the follow-ups, for you to send.",
                 "visibility": "Checks how findable your pages are and proposes fixes.",
                 "social": "Plans and drafts posts on a calendar you approve.",
-                "marketWatch": "Keeps an eye on the field and flags what changed."
+                "marketWatch": "Keeps an eye on the field and flags what changed.",
+                "executive": "Owns priorities, approvals, and the next revenue bottleneck for the team.",
+                "growth": "Runs one active channel, measures response quality, and reports what to scale or stop.",
+                "productMarketing": "Turns research into offers, landing-page copy, proof, and CTAs.",
+                "build": "Ships the approved page, funnel, analytics, and onboarding changes.",
+                "review": "Checks shipped work against the acceptance bar and sends back exact fixes when needed."
             }
         },
         "provisioning": {
